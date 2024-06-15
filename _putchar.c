@@ -5,7 +5,7 @@
  *
  * @c: the char
  *
- * Return: the char 
+ * Return: the char
  */
 
 int _putchar(char c)

@@ -14,14 +14,15 @@ int _printf(const char *format, ...)
 	int count = 0;
 
 	va_start(args, format);
-
+	if (!format)
+		return;
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
 			if (*format == '\0')
-				break;
+				return;
 
 			if (*format == 'c')
 			{
