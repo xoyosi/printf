@@ -13,6 +13,10 @@ int print_str(char *str)
 {
 	int i, count = 0;
 
+	if (!str)
+	{
+		str = "(null)";
+	}
 	for(i = 0; str[i] != '\0'; i++)
 	{
 		count += _putchar(str[i]);
