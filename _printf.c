@@ -11,30 +11,39 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, count, j;
+	int count = 0, i;
+	char *str;
 
-	while (*format && format[i] = count)
+	va_start(args, format);
+
+	while (*format)
 	{
 		if (*format == '%')
 		{
-			switch (format[i] + 1)
+			format = *(format++);
+			switch (*format)
 			{
 				case 'c':
 					{
-						_putchar(format);
+						count += _putchar(va_arg(args, int));
 					}
 				case 's':
 					{
-						for(j = 0; j < count; j++)
+						str = va_arg(args, char *);
+						while (*str)
 						{
-							_putchar(format);
+							count += _putchar(str);
+							str++;
 						}
 					}
 				case '%':
 					{
-						_putchar("%");
+						count += _putchar('%');
 					}
 			}
 		}
+		format++;
 	}
+	va_end(args);
+	return (count);
 }
