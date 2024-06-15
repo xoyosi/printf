@@ -8,7 +8,7 @@
  * Return: the char 
  */
 
-int _putchar(char c)
+int _putchar(int c)
 {
 	write(1, &c, 1);
 }
